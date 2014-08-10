@@ -11,7 +11,8 @@
       }
       var url = "http://fritz.repeater/cgi-bin/webcm"
       var params = {
-        'configd:settings/NLR/PlayControl': stationnr
+        'configd:settings/NLR/PlayControl': stationnr,
+        'login:command/password' : '<your_password>'
       }
       $.post(url, params);  // This request actually returns an error in the browser's console. But my Firtz.repeater does start playing the radio stream
       $("#msgs").append(".");
@@ -23,8 +24,8 @@
   <ul>
     <li><a href="#" onclick="playStation(1)">Play station 1</a></li>
     <li><a href="#" onclick="playStation(2)">Play station 2</a></li>
-    <li><a href="#" onclick="playStation(3)">Play station 2</a></li>
-    <li><a href="#" onclick="playStation(4)">Play station 2</a></li>
+    <li><a href="#" onclick="playStation(3)">Play station 3</a></li>
+    <li><a href="#" onclick="playStation(4)">Play station 4</a></li>
     <li><a href="#" onclick="playStation(0)">Stop playing</a></li>
   </ul>
   
