@@ -1,8 +1,8 @@
 # Start streams on FritzBox
 
-This little script start the internet radio stations that a re configured on your FritzBox or Fritz Repeater
+This little script can start and stop the internet radio stations that are configured on your FritzBox or Fritz Repeater.
 
-pt library](https://github.com/digitalbazaar/forge#cipher).
+Inspired by [this forum thread.](http://www.ip-phone-forum.de/showthread.php?t=244839)
 
 ## Status
 
