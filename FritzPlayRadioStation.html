@@ -1,0 +1,48 @@
+<html>
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    function playStation(stationnr) {
+      $("#msgs").empty();
+      if (stationnr == 0) {
+        $("#msgs").append("Stop playing");
+      } else {
+        $("#msgs").append("Start playing station nr="+stationnr);
+      }
+      var url = "http://fritz.repeater/cgi-bin/webcm"
+      var params = {
+        'configd:settings/NLR/PlayControl': stationnr
+      }
+      $.post(url, params);  // This request actually returns an error in the browser's console. But my Firtz.repeater does start playing the radio stream
+      $("#msgs").append(".");
+    }    
+  </script>
+</head>
+<body>
+  <h1>Fritz.Repeater - Internet Radio</h1>
+  <ul>
+    <li><a href="#" onclick="playStation(1)">Play station 1</a></li>
+    <li><a href="#" onclick="playStation(2)">Play station 2</a></li>
+    <li><a href="#" onclick="playStation(3)">Play station 2</a></li>
+    <li><a href="#" onclick="playStation(4)">Play station 2</a></li>
+    <li><a href="#" onclick="playStation(0)">Stop playing</a></li>
+  </ul>
+  
+  <div id="msgs"><p>&nbsp;</p></div>
+
+<p><span style="color:#999; position:absolute; bottom:ß">This is free software. www.doogie.de</span></p>
+</body>
+</html>
+
+<!--
+/**** originial form params from http://www.ip-phone-forum.de/showthread.php?t=244839 ***/
+<form action="http://fritz.repeater/cgi-bin/webcm?getpage=../html/query.txt&var:n[1]=configd:settings/NLR/PlayControl" method="post">
+<input name="configd:settings/NLR/PlayControl" value="2" id="uiPostPlayControl" type="hidden">
+<input name="login:command/password" value="tiger12" id="uiPostPassword" type="hidden">
+<input type="submit" name="Play Station 2"/>
+</form>
+
+and for the command line
+curl 'http://fritz.repeater/cgi-bin/webcm' -H 'Accept: */*' -H 'Origin: null' -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36' -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' --data 'configd%3Asettings%2FNLR%2FPlayControl=1' --compressed
+-->
+
